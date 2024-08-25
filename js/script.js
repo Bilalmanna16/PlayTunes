@@ -81,7 +81,7 @@ const playmusic = (track, pause = false) => {
 };
 
 async function displayAlbums() {
-  let songsFile = await fetch(`http://127.0.0.1:3000/Spotify/songs/`);
+  let songsFile = await fetch(`songs/${folder}/`);
   let response = await songsFile.text();
 
   let div = document.createElement("div");
@@ -96,7 +96,7 @@ async function displayAlbums() {
       let folder = e.href.split("/").slice(-2)[0];
       // get the meta dat of the folder
       let songsFile = await fetch(
-        `http://127.0.0.1:3000/Spotify/songs/${folder}/info.json`
+        `songs/${folder}/info.json`
       );
       let response = await songsFile.json();
       cardContainer.innerHTML =
