@@ -124,7 +124,7 @@ async function displayAlbums() {
 }
 
 async function main() {
-  await fetchSongs("songs/ncs");
+  await fetchSongs("/ncs");
   playmusic(songs[0], true);
 
   // display all the albums
