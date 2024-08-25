@@ -19,7 +19,8 @@ function formatTime(seconds) {
 
 async function fetchSongs(folder) {
   currFolder = folder;
-  let songsFile = await fetch(`http://127.0.0.1:3000/Spotify/${folder}/`);
+  // let songsFile = await fetch(`http://127.0.0.1:3000/Spotify/${folder}/`);
+  let songsFile = await fetch(`songs/${folder}/`);
   let response = await songsFile.text();
 
   let div = document.createElement("div");
