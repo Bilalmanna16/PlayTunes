@@ -19,7 +19,7 @@ function formatTime(seconds) {
 
 async function fetchSongs(folder) {
   currFolder = folder;
-  let songsFile = await fetch(`http://127.0.0.1:3000/Spotify/${folder}/`);
+  let songsFile = await fetch(`/${folder}/`);
   // let songsFile = await fetch(`songs/${folder}/`);
   let response = await songsFile.text();
 
@@ -81,7 +81,7 @@ const playmusic = (track, pause = false) => {
 };
 
 async function displayAlbums() {
-  let songsFile = await fetch(`http://127.0.0.1:3000/Spotify/${folder}/`);
+  let songsFile = await fetch(`/songs/`);
   let response = await songsFile.text();
 
   let div = document.createElement("div");
@@ -124,7 +124,7 @@ async function displayAlbums() {
 }
 
 async function main() {
-  await fetchSongs("/ncs");
+  await fetchSongs("songs/ncs");
   playmusic(songs[0], true);
 
   // display all the albums
